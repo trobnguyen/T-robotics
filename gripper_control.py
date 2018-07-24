@@ -13,6 +13,7 @@ import time
 
 HOST = "192.168.1.20" # The remote host - PCip
 PORT = 30000 # The same port as used by the server (can use port 30000, 30001, 30002, 30003, 30004)
+BUFFER_SIZE = 1024
 
 print "Starting Program"
 count = 0 # number of repeatation
@@ -38,16 +39,19 @@ while (count < 10):
                 data_sent = '0'
                 c.send(data_sent.encode('utf8'))
                 c.send("(0)") # gripper close
+                data = s.recv(BUFFER_SIZE)
                 input_num = 1
                 print "close gripper"
             else:    
                 data_sent = '1' 
                 c.send(data_sent.encode('utf8'))
                 c.send("(1)") # gripper open
+                data = s.recv(BUFFER_SIZE)
                 input_num = 0     
                 print "open gripper" 
     except socket.error as socketerror:
         print count
+    print "received data:", data
     
 # close the socket connection
 c.close()
