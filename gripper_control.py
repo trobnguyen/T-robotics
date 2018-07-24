@@ -25,7 +25,9 @@ s.bind((HOST, PORT)) # Bind to the port
 s.listen(1) # Now wait for client connection.
 c, addr = s.accept() # Establish connection with client.
 
-#  
+print 'Connection address:', addr
+
+# Start loop of sending and receiving data 
 while (count < 10):
     try:
         msg = c.recv(1024) # try to get the message from the UR robot
