@@ -41,14 +41,14 @@ while (count < 10):
                 data_sent = '0'
                 c.send(data_sent.encode('utf8'))
                 c.send("(0)") # gripper close
-                data = s.recv(BUFFER_SIZE)
+                data = c.recv(BUFFER_SIZE)
                 input_num = 1
                 print "close gripper"
             else:    
                 data_sent = '1' 
                 c.send(data_sent.encode('utf8'))
                 c.send("(1)") # gripper open
-                data = s.recv(BUFFER_SIZE)
+                data = c.recv(BUFFER_SIZE)
                 input_num = 0     
                 print "open gripper" 
     except socket.error as socketerror:
