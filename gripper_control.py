@@ -1,6 +1,6 @@
 # Echo client program
 ##########################################################
-## Developer: NGUYEN CANH TOAN
+## Developer: trobnguyen
 ## Date: 2018-07-20
 ## Description: 
 ##
